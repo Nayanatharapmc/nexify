@@ -39,4 +39,14 @@ public class CategoryController {
             return new ResponseEntity<>(e.getReason(), e.getStatusCode());
         }
     }
+
+    @PutMapping("api/admin/category/{categoryId}")
+    public ResponseEntity<String> updateCategory(@RequestBody Category category, @PathVariable String categoryId){
+        try{
+            Category savedCategory = categoryService.updateCategory(category, categoryId);
+            return new ResponseEntity<>("Category with id: "+savedCategory.getCategoryId()+"updated successfully.", HttpStatus.CREATED);
+        } catch (ResponseStatusException e) {
+            return new ResponseEntity<>(e.getReason(), e.getStatusCode());
+        }
+    }
 }
