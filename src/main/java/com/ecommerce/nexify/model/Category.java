@@ -8,9 +8,11 @@ import jakarta.persistence.Id;
 @Entity (name = "Categories") // Converts the java class to a JPA entity
 public class Category {
     @Id  // Defines the primary key
-    @GeneratedValue(strategy = GenerationType.IDENTITY) // Manages the generated value of the primary key
+//    @GeneratedValue(strategy = GenerationType.IDENTITY) // Manages the generated value of the primary key
     private String categoryId;
     private String categoryName;
+
+    public Category(){}
 
     public Category(String categoryId, String categoryName) {
         this.categoryId = categoryId;
